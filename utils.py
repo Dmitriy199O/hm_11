@@ -24,11 +24,13 @@ def get_candidate_by_id(user_id):
 
 
 def get_candidates_by_name(candidate_name):
-    return [candidate for candidate in DATA if candidate_name in candidate['name']]
+    return [candidate for candidate in DATA if candidate_name.lower() in candidate['name'].lower()]
 
 
 def get_candidates_by_skill(skill_name):
-    return [candidate for candidate in DATA if skill_name in candidate['skills']]
-
-# load_candidates_from_json()
-# print(get_candidate_by_id(1))
+    candidates = []
+    for candidate in DATA:
+        skills_list = candidate['skills'].lower().split(",")
+        if skill_name in skills_list:
+            candidates.append(candidate)
+    return candidates
