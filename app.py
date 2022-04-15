@@ -26,7 +26,7 @@ def search(candidate_name):
 @app.route('/skills/<skill_name>')
 def skills(skill_name):
     candidates = get_candidates_by_skill(skill_name)
-    return render_template('skill.html', candidate=candidates, candidates_len=len(candidates), skill_name=skill_name)
+    return render_template('skill.html', candidates=candidates, candidates_len=len(candidates), skill_name=skill_name)
 
 
 app.run(debug=True)

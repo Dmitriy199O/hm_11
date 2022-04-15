@@ -30,7 +30,7 @@ def get_candidates_by_name(candidate_name):
 def get_candidates_by_skill(skill_name):
     candidates = []
     for candidate in DATA:
-        skills_list = candidate['skills'].lower().split(",")
-        if skill_name in skills_list:
+        skills_list = candidate['skills'].lower().split(", ")
+        if skill_name.lower() in skills_list:
             candidates.append(candidate)
     return candidates
